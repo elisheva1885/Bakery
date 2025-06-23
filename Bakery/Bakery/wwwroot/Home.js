@@ -6,14 +6,10 @@
     const userName = document.getElementById("user_name").value
     console.log(firstName, lastName, userName, password)
 
-    if (!firstName)
-        console.log(firstName + " is required")
-    if (!lastName)
-        console.log(lastName + " is required")
-    if (!password)
-        console.log(password + " is required")
-    if (!userName)
-        console.log(userName + " is required")
+    if (!firstName || !lastName || !password || !userName) {
+        alert("All fields are required");
+        return;
+    }
 
     const user = {
         firstName: firstName,
@@ -31,14 +27,13 @@
 
     });
     if (!responsePost.ok) {
-        if (responsePost.status == 409) {
-            alert("already exist")
-        }
-        else {
-            alert("insert a stronger password")
-        }
+        const errorMessage = await responsePost.text();
+        alert(errorMessage);
+    } else {
+        alert("User registered successfully");
     }
-}
+    }
+
 
 const login = async () => {
     const password = document.getElementById("Lpsw").value
@@ -47,10 +42,10 @@ const login = async () => {
         password: password,
         userName: userName
     }
-    if (!password)
-        console.log(password + " is required")
-    if (!userName)
-        console.log(userName + " is required")
+    if (!password || !userName) {
+        alert("username and password are required");
+        return;
+    }
 
     const response = await fetch('api/User/login', {
         method: 'Post',
@@ -59,17 +54,16 @@ const login = async () => {
         },
         body: JSON.stringify(user)
     });
-    const userDetails= await response.json()
-    console.log(userDetails)
+    const text = await response.text();
+
     if (response.ok) {
-        alert(userName + " login succes")
-        localStorage.setItem("userId", userDetails.id)
+        const userDetails = JSON.parse(text);
+        alert(userName + " login success");
+        localStorage.setItem("userId", userDetails.id);
         window.location.href = "updatepage.html";
+    } else {
+        alert(text); // טקסט השגיאה שמגיע מהשרת
     }
-    else {
-        alert("Unauthorized")
-    }
-    localStorage.setItem("userId", userDetails.id)
 
 }
 
@@ -101,8 +95,11 @@ const upDate = async () => {
 
     });
 
-    if (responsePost.ok) {
-        alert("updated")
+    if (!responsePost.ok) {
+        const errorMessage = await responsePost.text();
+        alert(errorMessage);
+    } else {
+        alert("User updated successfully");
     }
 }
 

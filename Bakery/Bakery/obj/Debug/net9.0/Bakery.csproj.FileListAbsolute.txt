@@ -306,4 +306,8 @@ C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\ref
 C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\compressed\97sp1xjevu-grtqhnfhzn.gz
 C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\compressed\jktenh644w-2afxrcpgy9.gz
 C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\compressed\o13ke47zac-o7v7eao8v3.gz
-C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\compressed\mr1y3e05c8-ssepjrerma.gz
+C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\obj\Debug\net9.0\compressed\mr1y3e05c8-3v0zetgxsf.gz
+C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\bin\Debug\net9.0\nlog.config
+C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\bin\Debug\net9.0\NLog.dll
+C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\bin\Debug\net9.0\NLog.Extensions.Logging.dll
+C:\Users\משפחת ספראי\Desktop\Bakery\Bakery\Bakery\bin\Debug\net9.0\NLog.Web.AspNetCore.dll

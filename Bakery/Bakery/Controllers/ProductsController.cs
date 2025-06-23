@@ -18,9 +18,9 @@ namespace Bakery.Controllers
         }
         // GET: api/<ProductsController>
         [HttpGet]
-        public async Task<ActionResult<List<ProductDto>>> Get()
+        public async Task<ActionResult<List<ProductDto>>> Get(string? desc, int? minPrice, int? maxPrice, int?[] categoryIds)
         {
-            return await productsServices.getProducts();
+            return await productsServices.getProducts( desc, minPrice, maxPrice, categoryIds);
         }
 
     

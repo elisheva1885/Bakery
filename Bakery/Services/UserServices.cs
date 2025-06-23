@@ -2,6 +2,7 @@
 using Bakery;
 using DTOs;
 using Entities;
+using Microsoft.Extensions.Logging;
 using Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,12 @@ namespace Services
     {
         private readonly IUsersData usersData;
         private readonly IMapper autoMapping;
-
-        public UserServices(IUsersData _usersData, IMapper _autoMapping)
+        private readonly ILogger<UserServices> logger;
+        public UserServices(IUsersData _usersData, IMapper _autoMapping, ILogger<UserServices> _logger)
         {
             autoMapping = _autoMapping;
             usersData = _usersData;
+            logger = _logger;
         }
 
         public int validatepasswordStrong(string password)
@@ -61,6 +63,8 @@ namespace Services
             {
                 User loginUser = autoMapping.Map<User>(loginUserDto);
                 User user = await usersData.Login(loginUser);
+                logger.LogInformation("User logged in: {0} {1} ", user.Username, user.Password);
+
                 UserDto userDto = autoMapping.Map<UserDto>(user);
                 return userDto;
             }

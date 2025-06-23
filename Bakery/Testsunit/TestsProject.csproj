@@ -15,11 +15,21 @@
     <PackageReference Include="Moq.EntityFrameworkCore" Version="9.0.0.5" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="zxcvbn-core" Version="7.0.92" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj" />
     <ProjectReference Include="..\Repositories\Repositories.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DTOs">
+      <HintPath>..\DTOs\bin\Debug\net9.0\DTOs.dll</HintPath>
+    </Reference>
+    <Reference Include="Services">
+      <HintPath>..\Services\bin\Debug\net9.0\Services.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

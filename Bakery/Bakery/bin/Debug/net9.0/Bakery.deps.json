@@ -13,6 +13,7 @@
           "Entities": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.6",
+          "NLog.Web.AspNetCore": "6.0.0",
           "Repositories": "1.0.0",
           "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "8.1.1",
@@ -432,6 +433,38 @@
           }
         }
       },
+      "NLog/6.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/NLog.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.4146"
+          }
+        }
+      },
+      "NLog.Extensions.Logging/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.6",
+          "Microsoft.Extensions.Logging": "9.0.6",
+          "NLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/NLog.Extensions.Logging.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.706"
+          }
+        }
+      },
+      "NLog.Web.AspNetCore/6.0.0": {
+        "dependencies": {
+          "NLog.Extensions.Logging": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/NLog.Web.AspNetCore.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.1308"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/8.1.1": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -674,7 +707,8 @@
       },
       "DTOs/1.0.0": {
         "dependencies": {
-          "AutoMapper": "14.0.0"
+          "AutoMapper": "14.0.0",
+          "NLog.Web.AspNetCore": "6.0.0"
         },
         "runtime": {
           "DTOs.dll": {
@@ -686,7 +720,8 @@
       "Entities/1.0.0": {
         "dependencies": {
           "AutoMapper": "14.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.6"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.6",
+          "NLog.Web.AspNetCore": "6.0.0"
         },
         "runtime": {
           "Entities.dll": {
@@ -698,7 +733,8 @@
       "Repositories/1.0.0": {
         "dependencies": {
           "AutoMapper": "14.0.0",
-          "Entities": "1.0.0"
+          "Entities": "1.0.0",
+          "NLog.Web.AspNetCore": "6.0.0"
         },
         "runtime": {
           "Repositories.dll": {
@@ -712,6 +748,7 @@
           "AutoMapper": "14.0.0",
           "DTOs": "1.0.0",
           "Entities": "1.0.0",
+          "NLog.Web.AspNetCore": "6.0.0",
           "Repositories": "1.0.0",
           "zxcvbn-core": "7.0.92"
         },
@@ -981,6 +1018,27 @@
       "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+    },
+    "NLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3wqlcN80L6OHh0ZTQR/F+eZBeaAZ109XbvCEbtZ/nG5B/S+XzGOxv67RAfMx0YMkHY1aAHyW245k0/OE7J0ZxA==",
+      "path": "nlog/6.0.0",
+      "hashPath": "nlog.6.0.0.nupkg.sha512"
+    },
+    "NLog.Extensions.Logging/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0NaoDwhiNbnciFbaYDN0TxuSXn6oYXIEmXJQodHxJWd/vneCjeijFnXNoP6hqWNR+iMI5anBlA51Hfb/1etzjw==",
+      "path": "nlog.extensions.logging/6.0.0",
+      "hashPath": "nlog.extensions.logging.6.0.0.nupkg.sha512"
+    },
+    "NLog.Web.AspNetCore/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+Cu+u8E6KrhTQK1Zr6G/xO/mLS9lwN8PvU3/CSno7AEoV3nK+9wx2Uzviago3wVbn41DMOmfBW8hbB2lSKG7Nw==",
+      "path": "nlog.web.aspnetcore/6.0.0",
+      "hashPath": "nlog.web.aspnetcore.6.0.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/8.1.1": {
       "type": "package",

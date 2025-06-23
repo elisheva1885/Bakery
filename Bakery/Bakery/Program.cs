@@ -1,5 +1,6 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 using Repositories;
 using Services;
 
@@ -12,11 +13,9 @@ builder.Services.AddScoped<ICategoriesServices, CategoriesServices>();
 builder.Services.AddScoped<ICategoriesData, CategoriesData>();
 builder.Services.AddScoped<IOrdersServices, OrdersServices>();
 builder.Services.AddScoped<IOrdersData, OrdersData>();
-
-
-
 builder.Services.AddDbContext<BakeryDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Host.UseNLog(); 
 // Add services to the container.
 
 builder.Services.AddControllers();

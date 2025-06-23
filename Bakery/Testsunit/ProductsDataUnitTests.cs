@@ -33,8 +33,12 @@ public class ProductsDataUnitTests
         var repo = new ProductsData(mockContext.Object);
 
         // Act
-        var result = await repo.getProducts();
-
+        var result = await repo.getProducts(
+            desc: "cake",
+            minPrice: 20,
+            maxPrice: 100,
+            categoryIds: new int?[] { 1, 3 }
+            );
         // Assert
         Assert.NotNull(result);
         Assert.Equal(2, result.Count);
