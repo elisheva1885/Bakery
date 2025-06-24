@@ -13,19 +13,17 @@ namespace Services
 {
     public class CategoriesServices : ICategoriesServices
     {
-        private readonly ICategoriesData categoriesData;
-        private readonly IMapper autoMapping;
+    private readonly ICategoriesData categoriesData;//_categoriesData;
 
         public CategoriesServices(ICategoriesData _categoriesData, IMapper _autoMapping)
         {
             autoMapping = _autoMapping;
             categoriesData = _categoriesData;
         }
-        public async Task<List<CategoryDto>> getCategories()
+        public async Task<List<CategoryDto>> GetCategories() // Changed to PascalCase: GetCategories
         {
-             List<Catgory> categories = await categoriesData.getCatgories();
-            List<CategoryDto> categoriesDto = autoMapping.Map<List<CategoryDto>>(categories);
-            return categoriesDto;
+             List<Catgory> categories = await categoriesData.getCatgories(); // Suggestion: getCatgories => GetCatgories (PascalCase)
+            return autoMapping.Map<List<CategoryDto>>(categories);
         }
     }
 }

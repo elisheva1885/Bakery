@@ -10,13 +10,13 @@ namespace Repositories
 {
     public class ProductsData : IProductsData
     {
-        BakeryDBContext dBContext;
+        BakeryDBContext dBContext;//_dBContext;
         public ProductsData(BakeryDBContext usersDBContext)
         {
             dBContext = usersDBContext;
         }
 
-        public async Task<List<Product>> getProducts(string? desc,int? minPrice, int? maxPrice, int?[] categoryIds )
+        public async Task<List<Product>> GetProducts(string? desc,int? minPrice, int? maxPrice, int?[] categoryIds ) // Change to PascalCase: GetProducts
         {
             var getProductsQuery = dBContext.Products.Include(p => p.Category).Where(product =>
                 (desc == null ? (true) : (product.ProductDescription.Contains(desc)))
