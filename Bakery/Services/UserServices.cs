@@ -16,22 +16,22 @@ namespace Services
 {
     public class UserServices : IUserServices
     {
-        private readonly IUsersData usersData;
-        private readonly IMapper autoMapping;
-        private readonly ILogger<UserServices> logger;
+        private readonly IUsersData usersData;//_usersData;
+        private readonly IMapper autoMapping;//_autoMapping;
+        private readonly ILogger<UserServices> logger;//_logger;
         public UserServices(IUsersData _usersData, IMapper _autoMapping, ILogger<UserServices> _logger)
         {
-            autoMapping = _autoMapping;
+            autoMapping = _autoMapping;//_autoMapping =  autoMapping;
             usersData = _usersData;
             logger = _logger;
         }
 
-        public int validatepasswordStrong(string password)
+        public int ValidatePasswordStrong(string password)
         {
             var zxcvbnResult = Zxcvbn.Core.EvaluatePassword(password);
             return zxcvbnResult.Score;
         }
-        public async Task register(RegisterUserDto registerUserDto)
+        public async Task Register(RegisterUserDto registerUserDto)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Services
                     throw new HttpStatusException(400, "username must be at least 3 letters");
                 if(registerUserDto.Username.Equals(registerUserDto.Password))
                     throw new HttpStatusException(400, "password isn't safe");
-                if (validatepasswordStrong(registerUserDto.Password) > 2)
+                if (ValidatePasswordStrong(registerUserDto.Password) > 2)
                 {
                     User user = autoMapping.Map<User>(registerUserDto);
                     await usersData.Register(user);
@@ -57,7 +57,7 @@ namespace Services
 
         }
 
-        public async Task<UserDto> login(LoginUserDto loginUserDto)
+        public async Task<UserDto> Login(LoginUserDto loginUserDto)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace Services
             }
         }
 
-        public async Task update(int id, RegisterUserDto userDto)
+        public async Task update(int id, RegisterUserDto userDto)//Update
         {
             try
             {
@@ -89,18 +89,16 @@ namespace Services
             }
         }
 
-        public async Task<UserDto> getUserId(int id)
+        public async Task<UserDto> getUserId(int id)//GetUserId
         {
             User user = await usersData.getUserId(id);
-            UserDto userDto = autoMapping.Map<UserDto>(user);
-            return userDto;
+            return autoMapping.Map<UserDto>(user);
         }
 
-        public async Task<List<UserDto>> getUsers()
+        public async Task<List<UserDto>> getUsers()//GetUsers
         {
             List<User> users = await usersData.getUsers();
-            List<UserDto> usersDto = autoMapping.Map<List<UserDto>>(users);
-            return usersDto;
+            return autoMapping.Map<List<UserDto>>(users);
         }
     }
 }

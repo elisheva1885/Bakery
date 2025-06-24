@@ -12,7 +12,7 @@ namespace Repositories
 {
     public class UsersData : IUsersData
     {
-        BakeryDBContext dBContext;
+        BakeryDBContext dBContext;//_dBContext;
 
         public UsersData(BakeryDBContext usersDBContext)
         {
@@ -26,7 +26,7 @@ namespace Repositories
                     throw new HttpStatusException(409, "username already exist");
                 await dBContext.Users.AddAsync(user);
                 await dBContext.SaveChangesAsync();
-
+                return user;
             }
             catch (Exception e)
             {

@@ -10,13 +10,13 @@ namespace Repositories
 {
     public class CategoriesData : ICategoriesData
     {
-        BakeryDBContext dBContext;
+        BakeryDBContext dBContext;//_dBContext;
 
         public CategoriesData(BakeryDBContext usersDBContext)
         {
             dBContext = usersDBContext;
         }
-        public async Task<List<Catgory>> getCatgories()
+        public async Task<List<Catgory>> GetCatgories() // Changed to PascalCase
         {
             return await dBContext.Catgories.ToListAsync<Catgory>();
         }

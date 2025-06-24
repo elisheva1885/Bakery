@@ -20,11 +20,10 @@ namespace Services
             autoMapping = _autoMapping;
             productsData = _productsData;
         }
-        public async Task<List<ProductDto>> getProducts(string? desc, int? minPrice, int? maxPrice, int?[]? categoryIds)
+        public async Task<List<ProductDto>> GetProducts(string? desc, int? minPrice, int? maxPrice, int?[]? categoryIds) // Changed to PascalCase: GetProducts
         {
-            List<Product>  products = await productsData.getProducts(desc,minPrice, maxPrice,categoryIds);
-            List<ProductDto> productsDto = autoMapping.Map<List<Product>, List<ProductDto>>(products);
-            return productsDto;
+            List<Product>  products = await productsData.getProducts(desc,minPrice, maxPrice,categoryIds); // Suggestion: getProducts => GetProducts (PascalCase)
+            return autoMapping.Map<List<Product>, List<ProductDto>>(products);
         }
     }
 }

@@ -21,19 +21,19 @@ namespace Services
             ordersData = _ordersData;
         }
 
-        public async Task<List<OrderDto>> getOrders()
+        public async Task<List<OrderDto>> GetOrders() // Changed to PascalCase: GetOrders
         {
-            List<Order> orders = await ordersData.getOrders();
+            List<Order> orders = await ordersData.getOrders(); // Suggestion: getOrders => GetOrders (PascalCase)
             List<OrderDto> ordersDto = autoMapping.Map<List<OrderDto>>(orders);
             return ordersDto;
         }
 
-        public async Task addOrder(OrderDto orderDto)
+        public async Task AddOrder(OrderDto orderDto) // Changed to PascalCase: AddOrder, //RETURN OBJECT
         {
             try
             {
                 Order order = autoMapping.Map<Order>(orderDto);
-                await ordersData.addOrder(order);
+                await ordersData.addOrder(order); // Suggestion: addOrder => AddOrder (PascalCase)
             }
             catch (Exception e)
             {
